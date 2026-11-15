@@ -1,0 +1,113 @@
+
+❯ revisa esta pagina https://www.spaceappschallenge.org/2026/challenges/adaptin 
+  g-farms-with-nasa-data/?tab=resources y dime si el proyecto esta usando estos 
+  recursos                                                                      
+  ⎿  14 skills available
+
+  Ran 4 shell commands (ctrl+o to expand)
+
+● Ya tengo la lista de recursos del reto; leo la última parte para compararla
+  con lo que usa RotaSat.
+
+  Made 1 scratchpad edit +11, ran 2 shell commands (ctrl+o to expand)
+
+● RotaSat usa 4 de los 8 recursos de la NASA de esa página (POWER, IMERG, MODIS
+  y SRTM). De los otros 18 recursos, la mayoría son de EE. UU. y no sirven para
+  el Perú.
+
+  Recursos de la NASA (8)
+
+  ┌──────────────────────┬───────────┬─────────────────────────────────────┐
+  │       Recurso        │ ¿Lo usa   │              Para qué               │
+  │                      │ RotaSat?  │                                     │
+  ├──────────────────────┼───────────┼─────────────────────────────────────┤
+  │                      │           │ Temperatura, radiación, heladas,    │
+  │ NASA POWER           │ ✅ Sí     │ calor y evapotranspiración (cuánta  │
+  │                      │           │ agua necesita el cultivo)           │
+  ├──────────────────────┼───────────┼─────────────────────────────────────┤
+  │ GPM / IMERG          │ ✅ Sí     │ Lluvia en la costa y comparación    │
+  │                      │           │ con CHIRPS en la sierra             │
+  ├──────────────────────┼───────────┼─────────────────────────────────────┤
+  │                      │           │ NDVI (qué tan verde está el campo): │
+  │ MODIS                │ ✅ Sí     │  detecta los meses con el campo     │
+  │                      │           │ pelado                              │
+  ├──────────────────────┼───────────┼─────────────────────────────────────┤
+  │                      │           │ Altitud real para corregir la       │
+  │ SRTM                 │ ✅ Sí     │ temperatura, y pendiente para       │
+  │                      │           │ calcular la erosión                 │
+  ├──────────────────────┼───────────┼─────────────────────────────────────┤
+  │ SMAP (humedad del    │ ❌ No     │ Es el primero de la lista y el que  │
+  │ suelo)               │           │ más falta                           │
+  ├──────────────────────┼───────────┼─────────────────────────────────────┤
+  │ ECOSTRESS (estrés de │           │                                     │
+  │  las plantas por     │ ❌ No     │ —                                   │
+  │ calor y agua)        │           │                                     │
+  ├──────────────────────┼───────────┼─────────────────────────────────────┤
+  │ Landsat / VIIRS      │           │                                     │
+  │ (imágenes más        │ ❌ No     │ Landsat ve la parcela a 30 m; MODIS │
+  │ detalladas que       │           │  solo a 250 m                       │
+  │ MODIS)               │           │                                     │
+  ├──────────────────────┼───────────┼─────────────────────────────────────┤
+  │ NLDAS/GLDAS (modelos │           │                                     │
+  │  de humedad del      │ ❌ No     │ —                                   │
+  │ suelo y clima)       │           │                                     │
+  └──────────────────────┴───────────┴─────────────────────────────────────┘
+
+  Recursos de otras agencias e instituciones (18)
+
+  - Solo sirven en EE. UU. (13): USDA Ag Data Commons, Web Soil Survey,
+    CropScape, PRISM, SSURGO, NAIP, NLCD, CoCoRaHS, NWIS, AMS Market News, NASS
+    QuickStats, LANDFIRE y OpenET. No cubren el Perú, así que es correcto no
+    usarlos.
+  - Mundiales, pero no los usamos (5):
+    - FAO GAEZ: aptitud de cultivos a nivel mundial. Serviría para validar
+      nuestra tabla "¿Qué puedo sembrar aquí?".
+    - Sentinel-2 (Agencia Espacial Europea): imágenes de 10 m.
+    - GEDI: biomasa.
+    - ERA5: clima por modelo, del centro europeo de pronósticos.
+
+  RotaSat también usa dos fuentes que no están en la lista: CHIRPS (lluvia) y
+  SoilGrids (suelo). Eso está permitido: la página aclara que, al usar sitios
+  externos, hay que respetar sus condiciones de uso. CHIRPS es abierto y
+  SoilGrids tiene licencia CC BY 4.0.
+
+  Qué te recomiendo antes del sábado
+
+  1. Agregar humedad del suelo. Es el hueco más visible, porque el reto pone
+     SMAP primero.
+     - Ruta rápida, sin cuenta: NASA POWER tiene humedad del suelo superficial y
+       de la zona de raíces (calculada con el modelo MERRA-2 de la NASA). Se
+       integra en menos de una hora.
+     - Ruta ideal: SMAP real, pero necesita tu cuenta gratuita de NASA
+       Earthdata. Si la creas hoy, se puede agregar en el evento.
+  2. Mencionar GAEZ de la FAO como validación de la aptitud de los cultivos.
+  3. Convertir lo "solo EE. UU." en un argumento del pitch. Mostrar que usaste
+     el equivalente peruano de cada recurso:
+
+  ┌─────────────────────────────┬───────────────────────────────────────────┐
+  │ En EE. UU. (lista del reto) │          Equivalente en el Perú           │
+  ├─────────────────────────────┼───────────────────────────────────────────┤
+  │ PRISM (clima)               │ PISCO del SENAMHI (basado en CHIRPS, que  │
+  │                             │ ya usamos)                                │
+  ├─────────────────────────────┼───────────────────────────────────────────┤
+  │ NASS QuickStats             │ SIEA del MIDAGRI                          │
+  │ (estadísticas agrícolas)    │                                           │
+  ├─────────────────────────────┼───────────────────────────────────────────┤
+  │ AMS Market News (precios)   │ SISAP del MIDAGRI                         │
+  ├─────────────────────────────┼───────────────────────────────────────────┤
+  │ NWIS (agua)                 │ ANA (Autoridad Nacional del Agua)         │
+  ├─────────────────────────────┼───────────────────────────────────────────┤
+  │ Web Soil Survey / SSURGO    │ Estudios de suelos del INIA y la prueba   │
+  │ (suelos)                    │ de la bolita del agricultor               │
+  └─────────────────────────────┴───────────────────────────────────────────┘
+
+  Con eso le demuestras al jurado que leíste todos los recursos y los adaptaste
+  al Perú.
+
+  ¿Quieres que agregue ahora la humedad del suelo de NASA POWER a la app y la
+  tabla de equivalentes peruanos a la pestaña "Cómo funciona"?
+
+  Fuente: Pestaña de recursos del reto 07 (https://www.spaceappschallenge.org/20
+  26/challenges/adapting-farms-with-nasa-data/?tab=resources)
+
+✻ Baked for 1m 9s · done Friday 7:40 PM
